@@ -1,0 +1,58 @@
+* {
+  margin: 0px;
+}
+
+.app{
+  background-color: #f0dcdc;
+}
+
+.app-post{
+  padding: 20px;
+
+}
+
+.app-header{
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: white;
+  border-bottom: 1px solid lightgrey;
+  object-fit: contain;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: .5rem;
+}
+
+.app-image{
+  object-fit: contain;
+  width: 170px;
+}
+
+.login-btn{
+  border: none;
+  padding: .3rem;
+  width: 70px;
+  background-color: rgb(9, 9, 75);
+  color: #f0dcdc;
+  cursor: pointer;
+  box-shadow: 10px 10px 15px rgb(230, 202, 202);
+}
+
+.signup-btn{
+  margin-left: 5px;
+  border: none;
+  padding: .3rem;
+  width: 70px;
+  cursor: pointer;
+  box-shadow: 10px 10px 15px rgb(230, 202, 202);
+
+}
+
+.modal-container{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* z-index: 10; */
+  transform: translate(-50%, -50%);
+}
