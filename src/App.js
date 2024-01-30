@@ -27,8 +27,8 @@ function App() {
     if (locationData.state && locationData.state.username){
       setUsername(locationData.state.username)
     }
-  }, [])
-  console.log("username---------------->", username)
+  },[locationData.state])
+  console.log("useranem-", username)
 
 
   // const BASE_URL = "http://localhost:8000/";
