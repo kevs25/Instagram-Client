@@ -94,7 +94,7 @@ export default function ImageUploadModal({ authToken, authTokenType, userId }) {
   return (
     <>
       <Button variant="primary" class="btn btn-light" onClick={handleShow}>
-        Image Upload
+        Create Post
       </Button>
       <Modal
         show={show}
