@@ -60,7 +60,7 @@ function App() {
           <img
             className="app-image"
             src="https://1000logos.net/wp-content/uploads/2017/02/ig-logo-768x256.png"
-            alt="instagram"
+            alt=""
           />
           <div>
             <ImageUploadModal authToken={authToken} authTokenType={authTokenType} userId={userId}/>

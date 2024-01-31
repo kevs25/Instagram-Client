@@ -108,7 +108,7 @@ export default function Post({ post, authToken, authTokenType, username }) {
           </button>
         </div>
       </div>
-      <img className="post-image" src={imageUrl} alt="images" />
+      <img className="post-image" src={imageUrl} alt="" />
       <h4 className="post-text">{post.caption}</h4>
       <div className="post-comment">
         {comments?.map((comment, index) => {

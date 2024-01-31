@@ -99,7 +99,7 @@ function LoginPage() {
               <img
                 src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
                 className="img-fluid"
-                alt="Phone"
+                alt=""
               />
             </div>
             <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
@@ -111,7 +111,7 @@ function LoginPage() {
                     width: "300px",
                     marginBottom: "30px",
                   }}
-                  alt="instagram"
+                  alt=""
                 />
               </div>
               <form>

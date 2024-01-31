@@ -66,7 +66,7 @@ export default function SignupPage() {
             <img
               src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
               class="img-fluid"
-              alt="Phone image"
+              alt=""
             />
           </div>
           <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
@@ -79,7 +79,7 @@ export default function SignupPage() {
                   marginBottom: "30px",
                   
                 }}
-                alt="instagram"
+                alt=""
               />
             </div>
             <form>
