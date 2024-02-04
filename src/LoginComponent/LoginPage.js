@@ -153,7 +153,7 @@ function LoginPage() {
                   Sign in
                 </button>
                 <div className="mt-2">
-                  <button type="submit" className="border-0 bg-white" onClick={gotoSignup}>
+                  <button type="submit" className="border-0" onClick={gotoSignup}>
                     Don't have an account? Create here
                   </button>
                 </div>
