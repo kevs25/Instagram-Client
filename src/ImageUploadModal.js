@@ -4,7 +4,7 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 
 // const BASE_URL = "http://localhost:8000/";
-const BASE_URL = "https://instagram-clone-techwithkev.koyeb.app/"
+const BASE_URL = "https://instagram-clone-techwithkev.koyeb.app/";
 
 export default function ImageUploadModal({ authToken, authTokenType, userId }) {
   const [show, setShow] = useState(false);
@@ -25,41 +25,34 @@ export default function ImageUploadModal({ authToken, authTokenType, userId }) {
   };
 
   const handleClose = (event) => {
-    // event.preventDefault();
-    if (event === undefined){
-      setShow(false);
-    }
-    else{
-
-      const formData = new FormData();
-      formData.append("image", image);
+    event.preventDefault();
   
-      const requestOptions = {
-        method: "POST",
-        headers: new Headers({
-          Authorization: authTokenType + " " + authToken,
-        }),
-        body: formData,
-      };
-  
-      fetch(BASE_URL + "post/image", requestOptions)
-        .then((response) => {
-          if (response.ok) {
-            return response.json();
-          }
-          throw response;
-        })
-        .then((data) => {
-          const image_url = data.filename 
-          CreatPost(image_url);
-          setShow(false);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-      
-    }
+    const formData = new FormData();
+    formData.append("image", image);
 
+    const requestOptions = {
+      method: "POST",
+      headers: new Headers({
+        Authorization: authTokenType + " " + authToken,
+      }),
+      body: formData,
+    };
+
+    fetch(BASE_URL + "post/image", requestOptions)
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        }
+        throw response;
+      })
+      .then((data) => {
+        const image_url = data.filename;
+        CreatPost(image_url);
+        setShow(false);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   const CreatPost = (imageUrl) => {
@@ -85,7 +78,7 @@ export default function ImageUploadModal({ authToken, authTokenType, userId }) {
         }
         throw response;
       })
-      .then(data => {
+      .then((data) => {
         window.location.reload();
       })
       .catch((error) => {
@@ -97,15 +90,23 @@ export default function ImageUploadModal({ authToken, authTokenType, userId }) {
     setShow(true);
   };
 
+  const handleCancel = () => {
+    setShow(false);
+  }
+
   return (
     <>
-      <Button variant="primary" class="btn btn-light btn-sm" onClick={handleShow}>
+      <Button
+        variant="primary"
+        class="btn btn-light btn-sm"
+        onClick={handleShow}
+      >
         Create Post
       </Button>
       <Modal
         show={show}
-        onHide={(event) => handleClose(event)}
-        // backdrop="static" 
+        onHide={handleClose}
+        backdrop="static"
         keyboard={false}
       >
         <Modal.Body>
@@ -134,7 +135,15 @@ export default function ImageUploadModal({ authToken, authTokenType, userId }) {
                 onChange={handleChange}
               />
             </div>
-            <button type="submit" onClick={handleClose} class="btn btn-primary mt-2">
+            <button type="submit" onClick={handleCancel} class="btn btn-primary mt-2">
+              Cancel
+            </button>
+            <button
+              type="submit"
+              onClick={handleClose}
+              class="btn btn-primary mt-2"
+              style={{marginLeft : '5px'}}
+            >
               Submit
             </button>
           </form>

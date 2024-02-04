@@ -9,16 +9,18 @@ function SignOutModal() {
   let navigate = useNavigate();
 
   const handleClose = (event) => {
-    // event.preventDefault();
-    if (event === undefined) {
-      setShow(false);
-    }
+    event.preventDefault();
     
+
     setShow(false);
     Cookies.remove('authToken');
     Cookies.remove('authTokenType');
     navigate("/");
 
+  }
+
+  const handleCancel = () => {
+    setShow(false);
   }
 
   const handleShow = () => { 
@@ -27,7 +29,6 @@ function SignOutModal() {
 
   return (
     <>
-
       <Button variant="primary" class="btn btn-light" style={{marginLeft:'10px'}} onClick={handleShow}>
         Logout
       </Button>
@@ -35,13 +36,16 @@ function SignOutModal() {
       <Modal
         show={show}
         onHide={(event) => handleClose(event)}
-        // backdrop="static"
+        backdrop="static"
         keyboard={false}
       >
         <Modal.Body>
           <form>
             <p>Are you sure, you want to Logout ?</p>
-            <button type="submit" onClick={handleClose} class="btn btn-primary">
+            <button type="submit" onClick={handleCancel} class="btn btn-primary">
+              Cancel
+            </button>
+            <button type="submit" onClick={handleClose} style={{marginLeft: '5px'}} class="btn btn-primary">
               Logout
             </button>
           </form>
