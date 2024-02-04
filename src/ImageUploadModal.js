@@ -25,34 +25,40 @@ export default function ImageUploadModal({ authToken, authTokenType, userId }) {
   };
 
   const handleClose = (event) => {
-    event.preventDefault();
+    // event.preventDefault();
+    if (event === undefined){
+      setShow(false);
+    }
+    else{
 
-    const formData = new FormData();
-    formData.append("image", image);
-
-    const requestOptions = {
-      method: "POST",
-      headers: new Headers({
-        Authorization: authTokenType + " " + authToken,
-      }),
-      body: formData,
-    };
-
-    fetch(BASE_URL + "post/image", requestOptions)
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        }
-        throw response;
-      })
-      .then((data) => {
-        const image_url = data.filename 
-        CreatPost(image_url);
-        setShow(false);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+      const formData = new FormData();
+      formData.append("image", image);
+  
+      const requestOptions = {
+        method: "POST",
+        headers: new Headers({
+          Authorization: authTokenType + " " + authToken,
+        }),
+        body: formData,
+      };
+  
+      fetch(BASE_URL + "post/image", requestOptions)
+        .then((response) => {
+          if (response.ok) {
+            return response.json();
+          }
+          throw response;
+        })
+        .then((data) => {
+          const image_url = data.filename 
+          CreatPost(image_url);
+          setShow(false);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      
+    }
 
   };
 
@@ -93,13 +99,13 @@ export default function ImageUploadModal({ authToken, authTokenType, userId }) {
 
   return (
     <>
-      <Button variant="primary" class="btn btn-light" onClick={handleShow}>
+      <Button variant="primary" class="btn btn-light btn-sm" onClick={handleShow}>
         Create Post
       </Button>
       <Modal
         show={show}
-        onHide={handleClose}
-        backdrop="static"
+        onHide={(event) => handleClose(event)}
+        // backdrop="static" 
         keyboard={false}
       >
         <Modal.Body>
@@ -128,7 +134,7 @@ export default function ImageUploadModal({ authToken, authTokenType, userId }) {
                 onChange={handleChange}
               />
             </div>
-            <button type="submit" onClick={handleClose} class="btn btn-primary">
+            <button type="submit" onClick={handleClose} class="btn btn-primary mt-2">
               Submit
             </button>
           </form>

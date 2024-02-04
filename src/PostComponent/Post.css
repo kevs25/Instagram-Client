@@ -53,3 +53,10 @@
     width: 50px;
     
 }
+
+
+@media (width < 500px) {
+    .post{
+        width: 90%;
+    }
+}

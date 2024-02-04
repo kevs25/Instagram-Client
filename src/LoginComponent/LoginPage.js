@@ -108,8 +108,9 @@ function LoginPage() {
                   src="https://1000logos.net/wp-content/uploads/2017/02/ig-logo-768x256.png"
                   style={{
                     objectFit: "contain",
-                    width: "300px",
+                    width: "240px",
                     marginBottom: "30px",
+                    marginRight : "50px"
                   }}
                   alt=""
                 />

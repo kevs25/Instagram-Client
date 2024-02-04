@@ -7,8 +7,13 @@ import { useNavigate } from "react-router-dom";
 function SignOutModal() {
   const [show, setShow] = useState(false);
   let navigate = useNavigate();
+
   const handleClose = (event) => {
-    event.preventDefault();
+    // event.preventDefault();
+    if (event === undefined) {
+      setShow(false);
+    }
+    
     setShow(false);
     Cookies.remove('authToken');
     Cookies.remove('authTokenType');
@@ -23,14 +28,14 @@ function SignOutModal() {
   return (
     <>
 
-      <Button variant="primary" class="btn btn-light-md" style={{marginLeft:'10px'}} onClick={handleShow}>
+      <Button variant="primary" class="btn btn-light" style={{marginLeft:'10px'}} onClick={handleShow}>
         Logout
       </Button>
 
       <Modal
         show={show}
-        onHide={handleClose}
-        backdrop="static"
+        onHide={(event) => handleClose(event)}
+        // backdrop="static"
         keyboard={false}
       >
         <Modal.Body>

@@ -10,8 +10,8 @@ function App() {
   let navigate = useNavigate();
   const authToken = Cookies.get("authToken");
   const authTokenType = Cookies.get("authTokenType");
-  const [userId, setUserId] = useState('');
-  const [username, setUsername] = useState('');
+  const [userId, setUserId] = useState("");
+  const [username, setUsername] = useState("");
 
   useEffect(() => {
     if (!authToken || !authTokenType) {
@@ -21,18 +21,17 @@ function App() {
 
   let locationData = useLocation();
   useEffect(() => {
-    if (locationData.state && locationData.state.userId){
+    if (locationData.state && locationData.state.userId) {
       setUserId(locationData.state.userId);
     }
-    if (locationData.state && locationData.state.username){
-      setUsername(locationData.state.username)
+    if (locationData.state && locationData.state.username) {
+      setUsername(locationData.state.username);
     }
-  },[locationData.state])
-  console.log("useranem-", username)
-
+  }, [locationData.state]);
+  console.log("useranem-", username);
 
   // const BASE_URL = "http://localhost:8000/";
-  const BASE_URL = "https://instagram-clone-techwithkev.koyeb.app/"
+  const BASE_URL = "https://instagram-clone-techwithkev.koyeb.app/";
 
   const [posts, setPosts] = useState([]);
 
@@ -50,27 +49,35 @@ function App() {
     fetchData();
   }, []);
 
-  
-
-
   return (
     <div className="app">
-      <div className="sidebar">
-        <div className="app-header">
-          <img
-            className="app-image"
-            src="https://1000logos.net/wp-content/uploads/2017/02/ig-logo-768x256.png"
-            alt=""
+      <div className="app-header">
+        <img
+          className="app-image"
+          src="https://1000logos.net/wp-content/uploads/2017/02/ig-logo-768x256.png"
+          alt=""
+        />
+        <div>
+          <ImageUploadModal
+            authToken={authToken}
+            authTokenType={authTokenType}
+            userId={userId}
           />
-          <div>
-            <ImageUploadModal authToken={authToken} authTokenType={authTokenType} userId={userId}/>
-            <SignOutModal />
-          </div>
+          <SignOutModal />
         </div>
       </div>
+
       <div className="app-post">
         {posts.map((post) => {
-          return <Post key={post.id} post={post} authToken={authToken} authTokenType={authTokenType} username={username}/>;
+          return (
+            <Post
+              key={post.id}
+              post={post}
+              authToken={authToken}
+              authTokenType={authTokenType}
+              username={username}
+            />
+          );
         })}
       </div>
     </div>

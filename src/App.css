@@ -29,30 +29,13 @@
   width: 170px;
 }
 
-.login-btn{
-  border: none;
-  padding: .3rem;
-  width: 70px;
-  background-color: rgb(9, 9, 75);
-  color: #f0dcdc;
-  cursor: pointer;
-  box-shadow: 10px 10px 15px rgb(230, 202, 202);
-}
 
-.signup-btn{
-  margin-left: 5px;
-  border: none;
-  padding: .3rem;
-  width: 70px;
-  cursor: pointer;
-  box-shadow: 10px 10px 15px rgb(230, 202, 202);
-
-}
-
-.modal-container{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  /* z-index: 10; */
-  transform: translate(-50%, -50%);
+@media (width < 500px) {
+  .app-image{
+    width: 120px;
+  }
+  .app-post{
+    padding: 5px;
+    width: 100%;
+  }
 }
