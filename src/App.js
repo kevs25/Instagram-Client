@@ -40,6 +40,7 @@ function App() {
       try {
         const response = await fetch(BASE_URL + "post/all");
         const result = await response.json();
+        console.log("result",result);
         result.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
         setPosts(result);
       } catch (error) {
