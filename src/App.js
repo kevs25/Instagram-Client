@@ -31,7 +31,7 @@ function App() {
   console.log("useranem-", username);
 
   // const BASE_URL = "http://localhost:8000/";
-  const BASE_URL = "https://instagram-clone-techwithkev.koyeb.app/";
+  const BASE_URL = "https://instagram-client.netlify.app/";
 
   const [posts, setPosts] = useState([]);
 
